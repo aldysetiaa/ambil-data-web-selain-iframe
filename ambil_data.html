@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<title>GET WEB</title>
+	<script type="text/javascript"> 
+		function ambil_data(url){
+		$.getJSON('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.telunjuk.com/jual?q='+url), function (data) {
+                      $('#hasil').html(data.contents.replace(/data-src=/g,'src=').replace(/<div class="column is-3" style="padding-right: 15px;">/g, '<div class="hajar" >').replace(/padding-top: 50px; /g, 'padding-top: 0px; ').replace(/padding-top: 60px/g, 'padding-top: 0px; ').replace(/height: 25px;/g, 'height: 0px;').replace(/height: 18px;/g, 'height: 0px;').replace(/height: 39px;/g, 'height: 30px;').replace(/ca-pub-9840650221016916/g, '0')); 
+                  });
+ 
+	}
+	</script>
+	<style type="text/css">
+		#navbar-focus, #kategori-navbar, .navbar, #at4-share, #at4-share-label, .footer-wrapper, .sticky-1, #search-box-pagination, #aswift_1, 
+		#aswift_0, .adsbygoogle, .is-pulled-left, .is-pulled-right, .total-sold, #recomend-rating-4 {
+			display: none !important;
+			visibility: hidden;
+		} 
+		.is-9{
+			width: 100% important;
+		} 
+		.hajar{
+			width: 0px important;
+		}
+		.columns.is-mobile>.column.is-9{
+			flex:none;width: 100% !important;
+		}
+		section{
+			padding: 0px important;
+		}
+		.button.is-success{
+			background-color: #209cee !important;
+		}
+	</style> 
+</head>
+<body onload="ambil_data('susu')"> 
+	<div id="hasil" align="center">
+		<img src="loader.gif" width="500" height="500" alt="loading..." />
+	</div> 
+</body>
+</html>
